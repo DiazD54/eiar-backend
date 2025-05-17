@@ -6,7 +6,7 @@ import { PlacesModule } from './places/places.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://<user>:<pass>@cluster.mongodb.net/eiar-db'),
+    MongooseModule.forRoot(process.env.MONGO_URI || 'mongodb://localhost:27017/eiar'),
     AuthModule,
     UsersModule,
     PlacesModule,

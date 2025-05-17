@@ -6,8 +6,8 @@ export type PlaceDocument = Place & Document;
 @Schema()
 export class Place {
     @Prop({ required: true, unique: true })
-    tagId: string; // ID del tag NFC
-
+    tagId: string;
+    
     @Prop({ required: true })
     name: string;
 

@@ -7,9 +7,9 @@ export class PlacesController {
     constructor(private readonly placesService: PlacesService) {}
 
     @Get(':tagId')
-    async getByTag(@Param('tagId') tagId: string): Promise<Place> {
-        return this.placesService.findByTagId(tagId);
-    }
+        async findByTagId(@Param('tagId') tagId: string): Promise<Place> {
+            return this.placesService.findByTagId(tagId);
+    }   
 
     @Get()
     async getAll(): Promise<Place[]> {

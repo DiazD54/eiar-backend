@@ -5,9 +5,7 @@ import { PlacesController } from './places.controller';
 import { Place, PlaceSchema } from './place.schema';
 
 @Module({
-  imports: [
-    MongooseModule.forFeature([{ name: Place.name, schema: PlaceSchema }])
-  ],
+  imports: [MongooseModule.forFeature([{ name: Place.name, schema: PlaceSchema }])],
   providers: [PlacesService],
   controllers: [PlacesController],
 })
