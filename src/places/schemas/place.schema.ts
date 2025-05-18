@@ -5,14 +5,20 @@ export type PlaceDocument = Place & Document;
 
 @Schema()
 export class Place {
-    @Prop({ required: true, unique: true })
-    tagId: string;
-    
+    @Prop({ required: true })
+    tagId: string; // ID del tag NFC escaneado
+
     @Prop({ required: true })
     name: string;
 
     @Prop()
     description: string;
+
+    @Prop()
+    latitude: number;
+
+    @Prop()
+    longitude: number;
 
     @Prop()
     imageUrl: string;

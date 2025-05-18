@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Place, PlaceDocument } from './place.schema';
+import { Place, PlaceDocument } from './schemas/place.schema';
 
 @Injectable()
 export class PlacesService {
@@ -9,10 +9,8 @@ export class PlacesService {
         @InjectModel(Place.name) private placeModel: Model<PlaceDocument>
     ) {}
 
-    async findByTagId(tagId: string): Promise<Place> {
-        const place = await this.placeModel.findOne({ tagId }).exec();
-        if (!place) throw new NotFoundException('Lugar no encontrado');
-        return place;
+    async findByTagId(tagId: string): Promise<Place | null> {
+        return this.placeModel.findOne({ tagId }).exec();
     }
 
     async create(data: Partial<Place>): Promise<Place> {
